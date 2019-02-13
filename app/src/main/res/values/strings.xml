@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SMS Forwarding</string>
+    <string name="hint_msg">SMS Forwarding to...</string>
+    <string name="btn_msg">Set Phone Number</string>
+</resources>
