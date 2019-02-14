@@ -1,4 +1,4 @@
-package com.example.moisiimarin.smsforwarding;
+package com.android.mm13.smsforwarding;
 
 import android.Manifest;
 import android.content.ComponentName;

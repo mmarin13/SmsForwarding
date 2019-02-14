@@ -1,4 +1,4 @@
-package com.example.moisiimarin.smsforwarding;
+package com.android.mm13.smsforwarding;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.provider.Telephony;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.widget.Switch;
 import android.widget.Toast;
 
 public class SmsListener extends BroadcastReceiver {

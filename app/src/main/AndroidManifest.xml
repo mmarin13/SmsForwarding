@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.moisiimarin.smsforwarding">
+    package="com.android.mm13.smsforwarding">
 
     <!-- permissions -->
     <uses-permission android:name="android.permission.SEND_SMS" />
