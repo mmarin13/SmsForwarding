@@ -7,6 +7,7 @@ import android.provider.Telephony;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class SmsListener extends BroadcastReceiver {
@@ -16,6 +17,7 @@ public class SmsListener extends BroadcastReceiver {
             for(SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
                 String messageBody = smsMessage.getMessageBody();
                 String address = smsMessage.getOriginatingAddress();
+
                 Log.d("message", messageBody);
                 Log.d("address", address);
 

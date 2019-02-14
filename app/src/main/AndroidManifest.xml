@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".SmsListener"
+        <receiver
+            android:name=".SmsListener"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
