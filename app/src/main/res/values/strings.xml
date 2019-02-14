@@ -2,4 +2,6 @@
     <string name="app_name">SMS Forwarding</string>
     <string name="hint_msg">SMS Forwarding to...</string>
     <string name="btn_msg">Set Phone Number</string>
+    <string name="chk_notification">Show popup notification</string>
+    <string name="chk_run">Forward my SMS</string>
 </resources>

@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:paddingTop="32dp"
     android:paddingBottom="32dp"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp"
+    android:paddingRight="24dp"
+    android:paddingLeft="24dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -36,7 +36,29 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="50dp" />
+
+    <CheckBox
+        android:id="@+id/notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chk_notification"
+        android:checked="true"
+        android:textSize="16sp"
+        android:padding="10dp"/>
+
+    <CheckBox
+        android:id="@+id/run"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/chk_run"
+        android:checked="true"
+        android:textSize="16sp"
+        android:padding="10dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <Button
         android:id="@+id/sendSMS"

@@ -10,7 +10,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class SmsListener extends BroadcastReceiver {
-
     @Override
     public void onReceive(Context context, Intent intent) {
         if(Telephony.Sms.Intents.SMS_RECEIVED_ACTION.equals(intent.getAction())) {
