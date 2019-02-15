@@ -16,20 +16,21 @@ public class SmsListener extends BroadcastReceiver {
             for(SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
                 String messageBody = smsMessage.getMessageBody();
                 String address = smsMessage.getOriginatingAddress();
-
                 Log.d("message", messageBody);
                 Log.d("address", address);
 
-                //message to forward
-                String message = "From " + address + ": " + messageBody;
-
-                //verify if a phone number is set
-                String number = context.getSharedPreferences("data", context.MODE_PRIVATE).getString("number", "");
-                if(number.isEmpty()) {
-                    Toast.makeText(context, "A phone number is not set!", Toast.LENGTH_SHORT).show();
-                } else {
-                    SmsManager.getDefault().sendTextMessage(number, null, message, null, null);
-                    Toast.makeText(context, "A message was redirected!", Toast.LENGTH_SHORT).show();
+                String numberFrom = context.getSharedPreferences("data", context.MODE_PRIVATE).getString("numberFrom", "");
+                if(address.endsWith(numberFrom) && numberFrom.length() > 3) {
+                    //message to forward
+                    String message = "From " + address + ": " + messageBody;
+                    String numberTo = context.getSharedPreferences("data", context.MODE_PRIVATE).getString("numberTo", "");
+                    //verify if a phone numberTo is set
+                    if(numberTo.isEmpty()) {
+                        Toast.makeText(context, "A phone number is not set!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        SmsManager.getDefault().sendTextMessage(numberTo, null, message, null, null);
+                        Toast.makeText(context, "A message was redirected!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         }

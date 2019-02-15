@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SMS Forwarding</string>
-    <string name="hint_msg">SMS Forwarding to...</string>
+    <string name="hint_msg_to">SMS Forwarding to...</string>
+    <string name="hint_msg_from">SMS Forwarding from...</string>
     <string name="btn_msg">Save Settings</string>
     <string name="chk_run">Forward my SMS</string>
 </resources>

@@ -24,7 +24,7 @@
         android:layout_height="100dp" />
 
     <EditText
-        android:id="@+id/edit_number"
+        android:id="@+id/edit_number_from"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -32,7 +32,18 @@
         android:padding="10dp"
         android:inputType="phone"
         android:textSize="30sp"
-        android:hint="@string/hint_msg"/>
+        android:hint="@string/hint_msg_from"/>
+
+    <EditText
+        android:id="@+id/edit_number_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:inputType="phone"
+        android:textSize="30sp"
+        android:hint="@string/hint_msg_to"/>
 
     <Space
         android:layout_width="match_parent"

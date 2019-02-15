@@ -23,14 +23,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //load saved phone number
-        String number = getSharedPreferences("data", Context.MODE_PRIVATE).getString("number", " ");
+        //load saved phone numberTo
+        String numberTo = getSharedPreferences("data", Context.MODE_PRIVATE).getString("numberTo", "");
+        String numberFrom = getSharedPreferences("data", Context.MODE_PRIVATE).getString("numberFrom", "");
         Boolean state = getSharedPreferences("data", Context.MODE_PRIVATE).getBoolean("state", true);
-        Log.d("number", number);
+        Log.d("numberTo", numberTo);
+        Log.d("numberFrom", numberFrom);
 
-        EditText editText = findViewById(R.id.edit_number);
-        if(!number.isEmpty()) {
-            editText.setText(number, TextView.BufferType.EDITABLE);
+        EditText editTextFrom = findViewById(R.id.edit_number_from);
+        if(!numberFrom.isEmpty()) {
+            editTextFrom.setText(numberFrom, TextView.BufferType.EDITABLE);
+        }
+
+        EditText editTextTo = findViewById(R.id.edit_number_to);
+        if(!numberTo.isEmpty()) {
+            editTextTo.setText(numberTo, TextView.BufferType.EDITABLE);
         }
 
         Switch run = findViewById(R.id.run);
@@ -47,20 +54,25 @@ public class MainActivity extends AppCompatActivity {
      * @param v view
      */
     public void setPhoneNumber(View v) {
-        EditText editText = findViewById(R.id.edit_number);
-        String number = editText.getText().toString();
-        Log.d("number", number);
+        EditText editTextFrom = findViewById(R.id.edit_number_from);
+        String numberFrom = editTextFrom.getText().toString();
+        Log.d("numberFrom", numberFrom);
+
+        EditText editTextTo = findViewById(R.id.edit_number_to);
+        String numberTo = editTextTo.getText().toString();
+        Log.d("numberTo", numberTo);
 
         Switch run = findViewById(R.id.run);
 
-        //save phone number and app state
+        //save phone numbers and app state
         SharedPreferences.Editor editor = getSharedPreferences("data", Context.MODE_PRIVATE).edit();
-        editor.putString("number", number);
+        editor.putString("numberFrom", numberFrom);
+        editor.putString("numberTo", numberTo);
         editor.putBoolean("state", run.isChecked());
         editor.commit();
 
-        if(number.isEmpty()) {
-                Toast.makeText(getApplicationContext(), "You must enter a phone number",
+        if(numberTo.isEmpty() || numberFrom.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "All fields are required!",
                         Toast.LENGTH_SHORT).show();
         } else {
                 Toast.makeText(getApplicationContext(), "Settings are saved!",
