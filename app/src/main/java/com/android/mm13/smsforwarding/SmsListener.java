@@ -16,20 +16,22 @@ public class SmsListener extends BroadcastReceiver {
             for(SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
                 String messageBody = smsMessage.getMessageBody();
                 String address = smsMessage.getOriginatingAddress();
+
                 Log.d("message", messageBody);
                 Log.d("address", address);
 
-                String numberFrom = context.getSharedPreferences("data", context.MODE_PRIVATE).getString("numberFrom", "");
-                if(address.endsWith(numberFrom) && numberFrom.length() > 3) {
-                    //message to forward
-                    String message = "From " + address + ": " + messageBody;
-                    String numberTo = context.getSharedPreferences("data", context.MODE_PRIVATE).getString("numberTo", "");
-                    //verify if a phone numberTo is set
-                    if(numberTo.isEmpty()) {
-                        Toast.makeText(context, "A phone number is not set!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        SmsManager.getDefault().sendTextMessage(numberTo, null, message, null, null);
-                        Toast.makeText(context, "A message was redirected!", Toast.LENGTH_SHORT).show();
+                int counter = context.getSharedPreferences("data", context.MODE_PRIVATE).getInt("counter", 1);
+                for (int i = 0; i < counter; i++) {
+                    String numberFrom = context.getSharedPreferences("data", context.MODE_PRIVATE).getString("numberFrom" + i, "");
+                    if (address.endsWith(numberFrom) && numberFrom.length() > 3) {
+                        //message to forward
+                        String message = "From " + address + ": " + messageBody;
+                        String numberTo = context.getSharedPreferences("data", context.MODE_PRIVATE).getString("numberTo" + i, "");
+                        //verify if a phone numberTo is set
+                        if (!numberTo.isEmpty()) {
+                            SmsManager.getDefault().sendTextMessage(numberTo, null, message, null, null);
+                            Toast.makeText(context, "A message was redirected!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }

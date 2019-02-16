@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">SMS Forwarding</string>
-    <string name="hint_msg_to">SMS Forwarding to...</string>
-    <string name="hint_msg_from">SMS Forwarding from...</string>
+    <string name="hint_msg_to">TO &#8230;</string>
+    <string name="hint_msg_from">FROM &#8230;</string>
     <string name="btn_msg">Save Settings</string>
     <string name="chk_run">Forward my SMS</string>
+    <string name="btn_add">Add Rule</string>
+    <string name="btn_delete">X</string>
+    <string name="info">Set up your forwarding rules\nFROM X TO Y</string>
 </resources>
